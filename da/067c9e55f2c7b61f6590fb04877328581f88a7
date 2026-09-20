@@ -1,0 +1,56 @@
+nodes/generate_bugfix_design.yaml
+  s_a08e4006455391::t_c27f0976a91857 1-27
+README.md
+  s_a08e4006455391::t_8d0a3f3854e4c4 85-103
+  s_a08e4006455391::t_f7f5ad2c101cdf 5,7-8,30,70,236
+  s_a08e4006455391::t_2268a9c8fcef51 20,52,195
+  s_a08e4006455391::t_479cc4be77bc35 1-4,6,9-19,21-29,31-51,53-69,71-84,104,189-194,196-235,237-242
+  s_a08e4006455391::t_db375f510fcb76 105-188
+nodes/design_gate.yaml
+  s_a08e4006455391::t_ec579bf810505e 1-81
+runtime/efficiency-session.ps1
+  s_a08e4006455391::t_e567c390f5528d 1-125
+nodes/generate_design.yaml
+  s_a08e4006455391::t_c27f0976a91857 1-33
+runtime/src/cli.ts
+  s_a08e4006455391::t_e567c390f5528d 274
+  s_a08e4006455391::t_0f3d1ed3fb7c3f 1-273,275-332
+nodes/bugfix_design_review.yaml
+  s_a08e4006455391::t_c27f0976a91857 1-13
+nodes/design_review.yaml
+  s_a08e4006455391::t_c27f0976a91857 1-13
+nodes/bugfix_gate.yaml
+  s_a08e4006455391::t_f0f5fcfd712f87 1-69
+nodes/resolve_knowledge.yaml
+  s_a08e4006455391::t_08914242852e7e 1-8
+nodes/start_observability.yaml
+  s_a08e4006455391::t_764e100be260d1 1-4
+run.ps1
+  s_a08e4006455391::t_cb71ca3822e1c2 1-116
+runtime/package-lock.json
+  s_a08e4006455391::t_0de54fdc79b10f 1-28
+runtime/package.json
+  s_a08e4006455391::t_6f34ef98fb19ac 1-12
+workflow.yaml
+  s_a08e4006455391::t_52e42208a4e771 1-6
+workflows/bugfix.yaml
+  s_a08e4006455391::t_346c6c27ebf237 1-25
+workflows/feature.yaml
+  s_a08e4006455391::t_c78726ba15db65 1-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "da067c9e55f2c7b61f6590fb04877328581f88a7",
+  "prompts": {},
+  "sessions": {
+    "s_a08e4006455391": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bcce-9d6b-7173-aa28-29eafb0e7665",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "zhengjunfeng1 <zhengjunfeng1@ruijie.com.cn>"
+    }
+  }
+}
