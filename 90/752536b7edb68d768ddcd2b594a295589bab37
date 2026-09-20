@@ -1,0 +1,19 @@
+LICENSE
+  s_a08e4006455391::t_15a3e96f97cdc1 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "90752536b7edb68d768ddcd2b594a295589bab37",
+  "prompts": {},
+  "sessions": {
+    "s_a08e4006455391": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0bcce-9d6b-7173-aa28-29eafb0e7665",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "zjf666666 <zjf.anni@gmail.com>"
+    }
+  }
+}
