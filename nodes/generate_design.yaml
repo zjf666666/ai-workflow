@@ -1,0 +1,33 @@
+id: generate_design
+type: pi_generate_design
+executionMode: interactive
+# Interactive windows stay open for supervision and in-session questions.
+# Set true for unattended runs: the runtime auto-closes the window after the
+# agent finishes one turn (no /quit needed).
+autoAdvance: false
+input:
+  - requirement
+  - knowledge_context
+output:
+  type: design
+gate:
+  mode: script
+  script: design_gate
+  required: true
+  maxReworkAttempts: 3
+  onExhausted: HUMAN_INTERVENTION_REQUIRED
+# Fresh-session AI review after the deterministic gate: rejects dodged
+# user-owned decisions and routes rework back to this node's session.
+reviewedBy: design_review
+retry:
+  maxAttempts: 2
+# Only used when executionMode is changed to batch. Interactive mode waits for
+# the user to finish the Pi session with /quit.
+batchTimeoutSeconds: 1800
+requiredHeadings:
+  - '# Design'
+  - '## Scope'
+  - '## References'
+  - '## Proposed design'
+  - '## Decisions and constraints'
+  - '## Validation plan'

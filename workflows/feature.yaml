@@ -1,0 +1,25 @@
+id: feature-development
+kind: feature
+nodes:
+  - id: start_observability
+    enabled: true
+  - id: resolve_knowledge
+    enabled: true
+  - id: generate_design
+    enabled: true
+  - id: design_gate
+    enabled: true
+  - id: design_review
+    enabled: true
+  - id: coding
+    enabled: false
+  - id: ut
+    enabled: false
+  - id: itc
+    enabled: false
+  - id: code_review
+    enabled: false
+  - id: review_gate
+    enabled: false
+  - id: mr
+    enabled: false

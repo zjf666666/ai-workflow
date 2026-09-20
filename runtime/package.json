@@ -1,0 +1,12 @@
+{
+  "name": "engineering-workflow",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/cli.ts",
+    "check": "node --check src/cli.ts"
+  },
+  "dependencies": {
+    "yaml": "^2.9.1"
+  }
+}

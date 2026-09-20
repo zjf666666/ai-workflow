@@ -1,0 +1,27 @@
+id: generate_bugfix_design
+type: pi_generate_bugfix_design
+executionMode: interactive
+# See generate_design.yaml: true = auto-close window after one agent turn.
+autoAdvance: false
+input:
+  - requirement
+  - knowledge_context
+output:
+  type: bugfix_design
+gate:
+  mode: script
+  script: bugfix_gate
+  required: true
+  maxReworkAttempts: 3
+  onExhausted: HUMAN_INTERVENTION_REQUIRED
+reviewedBy: bugfix_design_review
+retry:
+  maxAttempts: 2
+batchTimeoutSeconds: 1800
+requiredHeadings:
+  - '# Bugfix Design'
+  - '## Symptom and impact'
+  - '## Reproduction and evidence'
+  - '## Cause hypotheses'
+  - '## Proposed fix'
+  - '## Regression validation'

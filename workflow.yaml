@@ -1,0 +1,6 @@
+id: engineering-workflow
+changeKinds:
+  feature:
+    workflow: workflows/feature.yaml
+  bugfix:
+    workflow: workflows/bugfix.yaml

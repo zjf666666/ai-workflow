@@ -1,0 +1,81 @@
+id: design_gate
+type: contract_gate
+input:
+  - design
+output:
+  type: design_gate_result
+requiredHeadings:
+  - '# Design'
+  - '## Scope'
+  - '## References'
+  - '## Proposed design'
+  - '## Decisions and constraints'
+  - '## Validation plan'
+checks:
+  # Only the six required sections may exist, in template order.
+  # '###' subsections inside a required section are allowed; any other
+  # '#'/level-'##' section fails the gate.
+  exactSections: true
+  # Every file:line and knowledge/*.md#anchor citation must resolve against the
+  # real repository: the file exists, the line is within range, the anchor id
+  # is present. (Whether the cited line supports the claim is the AI review's
+  # job, not the gate's.)
+  verifyAnchors: true
+  # Every required section must carry substantive content, not only the heading.
+  minSectionChars: 40
+  # Placeholder markers anywhere in a required section fail the gate.
+  forbiddenTokens:
+    - TBD
+    - TODO
+    - FIXME
+    - Lorem
+    - placeholder
+    - to be defined
+    - to be filled
+    - 待定
+    - 待补充
+    - 待填写
+    # Attribution fallback leaked into the document = identity injection failed.
+    - unidentified user
+  # The gate resolves the requirement owner's git identity itself and fails
+  # unless the Decisions and constraints section names that owner — invented
+  # attributions fail just like missing ones.
+  requireIdentity: true
+  sections:
+    # The reference list is the handoff for the next node's fresh session:
+    # it must carry real knowledge anchors or verified code locations.
+    - heading: '## References'
+      minAnchors: 3
+      anchorPattern: '([A-Za-z0-9_.\-/]+\.[A-Za-z0-9]+:\d+)|(knowledge/[A-Za-z0-9_./\-]+\.md#[A-Za-z0-9_\-]+)'
+    # Rejected alternatives must be named and reasoned about.
+    - heading: '## Proposed design'
+      anyKeywords:
+        - rejected
+        - alternative
+        - trade-off
+        - considered
+        - 否决
+        - 弃用
+        - 备选
+        - 取舍
+    # The decision log must reference user confirmations, not open items.
+    - heading: '## Decisions and constraints'
+      anyKeywords:
+        - 用户确认
+        - 用户决定
+        - confirmed
+        - decided
+        - constraint
+        - 约束
+    # Validation must reference concrete verification means.
+    - heading: '## Validation plan'
+      anyKeywords:
+        - test
+        - command
+        - verify
+        - validate
+        - regression
+        - 测试
+        - 命令
+        - 验证
+        - 回归

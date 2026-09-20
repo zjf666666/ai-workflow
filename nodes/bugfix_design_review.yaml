@@ -1,0 +1,13 @@
+id: bugfix_design_review
+type: pi_review
+executionMode: interactive
+# Review is autonomous (no user input expected): auto-close after one turn.
+autoAdvance: true
+input:
+  - bugfix_design
+output:
+  type: bugfix_design_review_result
+target: generate_bugfix_design
+maxReworkAttempts: 3
+onExhausted: HUMAN_INTERVENTION_REQUIRED
+batchTimeoutSeconds: 1200

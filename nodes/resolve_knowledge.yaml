@@ -1,0 +1,8 @@
+id: resolve_knowledge
+type: local_knowledge
+input:
+  - requirement
+output:
+  type: knowledge_context
+retry:
+  maxAttempts: 1

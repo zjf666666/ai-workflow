@@ -1,0 +1,69 @@
+id: bugfix_gate
+type: contract_gate
+input:
+  - bugfix_design
+output:
+  type: bugfix_gate_result
+requiredHeadings:
+  - '# Bugfix Design'
+  - '## Symptom and impact'
+  - '## Reproduction and evidence'
+  - '## Cause hypotheses'
+  - '## Proposed fix'
+  - '## Regression validation'
+checks:
+  verifyAnchors: true
+  # Every required section must carry substantive content, not only the heading.
+  minSectionChars: 40
+  # Placeholder markers anywhere in a required section fail the gate.
+  forbiddenTokens:
+    - TBD
+    - TODO
+    - FIXME
+    - Lorem
+    - placeholder
+    - to be defined
+    - to be filled
+    - 待定
+    - 待补充
+    - 待填写
+  sections:
+    # Reproduction claims need file:line anchors.
+    - heading: '## Reproduction and evidence'
+      minAnchors: 3
+      anchorPattern: '[A-Za-z0-9_.\-/]+\.[A-Za-z0-9]+:\d+'
+    # Cause hypotheses must read as hypotheses, not assertions.
+    - heading: '## Cause hypotheses'
+      anyKeywords:
+        - hypothesis
+        - likely
+        - possible
+        - assume
+        - because
+        - 假设
+        - 可能
+        - 因为
+        - 推测
+    # Rejected fix alternatives must be named and reasoned about.
+    - heading: '## Proposed fix'
+      anyKeywords:
+        - rejected
+        - alternative
+        - trade-off
+        - considered
+        - 否决
+        - 弃用
+        - 备选
+        - 取舍
+    # Regression validation must reference concrete verification means.
+    - heading: '## Regression validation'
+      anyKeywords:
+        - test
+        - command
+        - verify
+        - validate
+        - regression
+        - 测试
+        - 命令
+        - 验证
+        - 回归

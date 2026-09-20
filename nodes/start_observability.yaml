@@ -1,0 +1,4 @@
+id: start_observability
+type: observability_start
+output:
+  type: observability_session
